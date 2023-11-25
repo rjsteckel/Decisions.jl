@@ -1,5 +1,7 @@
 module Decisions
 
+using NamedArrays
+
 include("losses.jl")
 include("observations.jl")
 
