@@ -6,5 +6,6 @@
 [![Coverage](https://codecov.io/gh/rjsteckel/Decisions.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/rjsteckel/Decisions.jl)
 
 
+
 [Elementary Decision Theory: By Herman Chernoff, Lincoln E. Moses](https://store.doverpublications.com/0486143775.html)
 
