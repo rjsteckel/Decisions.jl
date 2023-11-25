@@ -3,6 +3,10 @@ uuid = "7a854e26-7c2f-44be-b8ac-0b589985e005"
 authors = ["Ryan Steckel <rsteckel@gmail.com> and contributors"]
 version = "1.0.0-DEV"
 
+[deps]
+IterTools = "c8e1da08-722c-5040-9ed9-7db0dc04731e"
+NamedArrays = "86f7a689-2022-50b4-a561-43c23ac3c673"
+
 [compat]
 julia = "1"
 
