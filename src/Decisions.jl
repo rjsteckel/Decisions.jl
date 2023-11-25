@@ -1,6 +1,7 @@
 module Decisions
 
 using NamedArrays
+using IterTools
 
 include("losses.jl")
 include("observations.jl")
