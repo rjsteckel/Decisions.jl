@@ -1,5 +1,10 @@
 module Decisions
 
-# Write your package code here.
+include("losses.jl")
+include("observations.jl")
+
+export LossMatrix
+export StrategyLossMatrix
+export ObservationMatrix
 
 end
