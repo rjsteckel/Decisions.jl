@@ -1,7 +1,7 @@
 
 
 struct ObservationMatrix
-    O::NamedArray
+    states_observations::NamedArray
 
     ObservationMatrix(probs::Array, states::Array{String}, obs::Array{String}) = begin
         checks = (

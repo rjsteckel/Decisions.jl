@@ -1,23 +1,23 @@
 
 
 struct LossMatrix
-    loss::NamedArray
-    actions::Array{String}
+    loss::NamedArray    
     states::Array{String}
+    actions::Array{String}
 
-    LossMatrix(losses::Array, actions::Array{String}, states::Array{String}) = begin
+    LossMatrix(losses::Array, states::Array{String}, actions::Array{String}) = begin
         checks = (
-            size(losses)[1] == length(actions) &&
-            size(losses)[2] == length(states)
+            size(losses)[1] == length(states) &&
+            size(losses)[2] == length(actions)
         )
         @assert checks "dimension check failed" 
 
         losses = NamedArray(
-            [0 5; 1 3; 3 2],
-            names=(actions, states),
-            dimnames=("actions", "states")
+            losses,
+            names=(states, actions),
+            dimnames=("states", "actions")
         )
-        new(losses, actions, states)
+        new(losses, states, actions)
     end
 end
 
@@ -42,8 +42,9 @@ struct StrategyLossMatrix
         
         # Compute losses for each strategy
         strategy_loss = Vector()
-        for i in 1:length(P)
-            push!(strategy_loss, vcat([L.loss[[i],:] for i in [A[a] for a in P[i]]]...))
+        for sᵢ in eachindex(P)
+            push!(strategy_loss, [A[s] for s in P[sᵢ]])
+            #push!(strategy_loss, vcat([L.loss[:,[i]] for i in [A[a] for a in P[s]]]...))
         end
         new(L, P, A, strategy_loss)
     end
