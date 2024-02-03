@@ -14,7 +14,7 @@ export LossMatrix
     Loss Matrix
     L = LossMatrix([2 3; 1 1], ["a1", "a2"], ["s1", "s2"])
 """
-export StrategyLossMatrix
+#export StrategyLossMatrix
 export ObservationMatrix
 
 export expected_strategy_loss
