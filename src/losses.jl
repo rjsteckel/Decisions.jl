@@ -51,15 +51,6 @@ struct StrategyLossMatrix
 end
 
 
-function Base.show(io::IO, l::LossMatrix)
-    println(io, l.loss)
-end
-
-
-function Base.show(io::IO, ::MIME"text/plain", l::LossMatrix)
-    println(io, l.loss)
-end
-
 
 """
 
