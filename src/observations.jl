@@ -1,17 +1,18 @@
 
+"""
+    ObservationMatrix(probs, states, obs)
 
+A structure to store the probability of observations given states: P(x|θ).
+Uses `NamedArrays` to allow indexing by state and observation names.
+"""
 struct ObservationMatrix
-    states_observations::NamedArray
+    states_observations::NamedArray{Float64, 2}
 
-    ObservationMatrix(probs::Array, states::Array{String}, obs::Array{String}) = begin
-        checks = (
-            size(probs)[1] == length(states) &&
-            size(probs)[2] == length(obs)
-        )
-        @assert checks "dimension check failed" 
+    function ObservationMatrix(probs::AbstractMatrix{<:Real}, states::AbstractVector{<:AbstractString}, obs::AbstractVector{<:AbstractString})
+        @assert size(probs) == (length(states), length(obs)) "Dimension mismatch: size(probs) must be (length(states), length(obs))" 
         O = NamedArray(
-            probs,
-            names=(states, obs),
+            Float64.(probs),
+            names=(String.(states), String.(obs)),
             dimnames=("states", "obs")
         )
         new(O)
