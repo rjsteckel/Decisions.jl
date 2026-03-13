@@ -15,7 +15,7 @@ using NamedArrays
         ES = expected_strategy_loss(L, O)
         @test ES[end,:] == [3.0; 2.0]
 
-        # scatter(ES[:,1], ES[:,2])
+        # scatter(ES[:,1], ES[:,2])  # fig. 5.1
     end
 
     @testset "Fixed Bugs" begin
